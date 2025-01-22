@@ -47,3 +47,5 @@ $ deactivate
 
 ## Resources
 - https://mlu-explain.github.io/linear-regression/
+- https://youtu.be/sGy8yWq9O1g
+- https://github.com/aws-samples/aws-machine-learning-university-accelerated-nlp/blob/main/notebooks/MLA-NLP-Lecture2-Linear-Regression.ipynb
