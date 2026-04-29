@@ -1,0 +1,17 @@
+{
+  "name": "linear-reg-nodejs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Node.js port of the linear regression notebooks under ../jupyter",
+  "scripts": {
+    "single": "node 01a_single_var.js",
+    "multi": "node 01b_multi_var.js"
+  },
+  "dependencies": {
+    "ml-regression-multivariate-linear": "^2.0.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

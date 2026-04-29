@@ -1,51 +1,32 @@
-# Linear Regression - Python
+# Linear Regression - Python (CLI)
+
+Plain-Python CLI port of the notebooks in `../jupyter/`. Same data, same predictions, no Jupyter.
 
 ## Pre-requisites
-- Anaconda/Miniconda or Python 3
-- Jupyter
+- Python 3.9+
 
 ## Setup
 
-- Virtual Env: `venv`
-- Jupyter Setup
-- Delete Old Jupyter Kernels
-- Add Jupyter Kernel `venv`
-- PIP install dependencies
-- run Jupyter and select `venv` as kernel
-
 ```sh
-# install virtual env
-$ virtualenv venv --system-site-packages
-$ source venv/bin/activate
-...
-# install jupyter
-$ which jupyter
-$ pip install jupyter --target=venv/bin
-$ ls -la venv/bin
-$ which jupyter
-$ which venv/bin/jupyter.py
-$ python venv/bin/jupyter.py --paths
-# delete old jupyter kernels
-$ jupyter-kernelspec uninstall venv
-# add new jupyter kernel
-$ python -m ipykernel install --user --name=venv
-# install dependencies
-$ which pip
-$ pip list
-$ pip install -r requirements.txt
-$ pip list
-# run jupyter and select venv as kernel
-$ python venv/bin/jupyter.py notebook
-...
-$ deactivate
+cd 01_ML/01_supervised/01_regression/01_linear_reg/python
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
-### Troubleshoot
-- https://www.codingforentrepreneurs.com/blog/install-jupyter-notebooks-virtualenv
-- https://ipython.readthedocs.io/en/stable/install/kernel_install.html
+## Run
 
+```sh
+python 01a_single_var.py   # one feature  (area)
+python 01b_multi_var.py    # two features (area, age)
+```
 
-## Resources
-- https://mlu-explain.github.io/linear-regression/
-- https://youtu.be/sGy8yWq9O1g
-- https://github.com/aws-samples/aws-machine-learning-university-accelerated-nlp/blob/main/notebooks/MLA-NLP-Lecture2-Linear-Regression.ipynb
+Each script prints the input table, the fitted coefficients/intercept, and the predicted prices for the test rows. Each also saves a PNG (`01a_single_var_plot.png` / `01b_multi_var_plot.png`) — matplotlib runs headless via the `Agg` backend, so no display is required.
+
+## Relationship to the Jupyter version
+
+The code mirrors `../jupyter/*.ipynb` cell-for-cell with three differences:
+
+1. `matplotlib.use("Agg")` is set before importing `pyplot` so the script works over SSH / in CI without a display.
+2. Plots are written to PNG via `savefig` instead of being shown inline.
+3. There is no `pip install -r requirements.txt` magic; install deps once during setup above.
