@@ -1,0 +1,19 @@
+{
+  "name": "nonlinear-reg-nodejs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Node.js port of the non-linear regression notebooks under ../jupyter",
+  "scripts": {
+    "quadratic":   "node 02a_quadratic.js",
+    "cubic":       "node 02b_cubic.js",
+    "logarithmic": "node 02c_logarithmic.js",
+    "exponential": "node 02d_exponential.js"
+  },
+  "dependencies": {
+    "ml-regression-multivariate-linear": "^2.0.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
